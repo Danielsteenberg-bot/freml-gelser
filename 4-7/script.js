@@ -74,17 +74,13 @@ let priceInput = document.querySelector(".price-input");
 let yearInput = document.querySelector(".year-input");
 let modelInput = document.querySelector(".model-input");
 let milesInput = document.querySelector(".miles-input");
+let urlInput = document.querySelector(".url-input");
 let newCarBTN = document.querySelector(".newCarBTN");
 
 
-newCarBTN.addEventListener("click", () => {
-    /* Opretter nyt object med template fra vores class vigtigt er her rækkefølgen så input navn stemmer overens med template/class  */
-    let myCar5 = new Car(modelInput.value, yearInput.value, milesInput.value, priceInput.value)
-    bilGalleri.addCar(myCar5);
-    
-    /* Kalder vores write function igen så vi starter med ingen data 
-    og derved automatisk opdatere dem ved klik og uden refresh */
-    
-    writeData()
 
-})
+newCarBTN.addEventListener("click", () => {
+  let myCar = new Car(modelInput.value, yearInput.value, milesInput.value, priceInput.value,urlInput.value);
+  bilGalleri.addCar(myCar);
+  writeData();
+});
